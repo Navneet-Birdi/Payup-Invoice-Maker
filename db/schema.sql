@@ -1,0 +1,2 @@
+DROP DATABASE IF EXISTS payup_db;
+CREATE DATABASE payup_db;
