@@ -27,5 +27,12 @@ CREATE TABLE `payup_db`.`invoice` (
   `order_number` INT UNSIGNED NOT NULL AUTO_INCREMENT,
   `user_name` VARCHAR(100) NOT NULL,
   `user_address` VARCHAR(100) NOT NULL,
+  `product_name` VARCHAR(100) NOT NULL,
+  `product_quantity` INT NOT NULL,
+  `product_price` INT NOT NULL,
+  `product_in_stock` TINYINT NOT NULL,
+  `client_info` VARCHAR(255) NOT NULL,
   PRIMARY KEY (`order_number`),
   UNIQUE INDEX `order_number_UNIQUE` (`order_number` ASC) VISIBLE);
+
+
