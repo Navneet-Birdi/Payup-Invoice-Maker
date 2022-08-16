@@ -51,7 +51,7 @@ input[type=text], input[type=password] {
   }
   
   
-  .cancelbtn, .signupbtn {
+  .cancelbtn, .signupbtn, #login-btn {
     float: left;
     width: 50%;
   }
