@@ -62,21 +62,21 @@ input[type=text], input[type=password] {
   }
   
   /* The Modal (background) */
-  .modal {
+  .card-body {
     /* display: none;  */
-    position: fixed; 
+    position: relative; 
     z-index: 1;
     left: 0;
     top: 0;
     width: 100%;
     height: 100%; 
     overflow: auto;
-    background-color: rgb(224, 221, 221);
+    background-color: white;
     padding-top: 50px;
   }
   
-  /* Modal Content/Box */
-  .modal-content {
+  /* Modal Content/Box 
+  .card-body {
     background-color: #fefefe;
     margin: 5% auto 15% auto; 
     border: 1px solid #888;
@@ -96,6 +96,16 @@ input[type=text], input[type=password] {
     clear: both;
     display: table;
   }
+/*styles for invoice page*/
+  .container{
+  
+    text-align: left;
+  }
+
+ .btn-outline-info{
+    display: inline-block;
+
+ }
   
   
   @media screen and (max-width: 300px) {
