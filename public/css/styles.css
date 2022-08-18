@@ -50,8 +50,11 @@ input[type=text], input[type=password] {
     background-color: #7c7575;
   }
   
+#login-btn {
+  width: 5rem;
+}
   
-  .cancelbtn, .signupbtn, #login-btn {
+  .cancelbtn, .signupbtn {
     float: left;
     width: 50%;
   }
