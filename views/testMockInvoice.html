@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<link rel="stylesheet" href="/public/css/styles.css">
+		<title>PayUp! - Get paid on time</title>
+
+	</head>
+
+	<body>
+		<form>
+		<div class="invoice-box">
+			<table cellpadding="0" cellspacing="10">
+				<tr class="top">
+					<td colspan="3">
+						<table>
+							<tr>
+								<td class="title">
+                                    <h4 style="margin-top: auto; margin-bottom: auto;">PayUp</h4>
+									<img src="/public/images/shut-up-logo-1000.png" style="width: 100%; max-width: 200px" alt="PayUp Logo here" />
+								</td>
+								<td class="information">
+									<div class="form-group">
+										<label for="order">Order #</label>
+										<input type="text" class="form-control" id="order" placeholder="{{order_number}}">
+										<br/>
+										Created: {{date}}<br/>
+										PayUp: 14 days after issue
+									  </div>
+								</td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+
+				<tr class="information">
+					<td colspan="3">
+						<table>
+							<tr>
+								<td>
+									<div class="form-group">
+										<label for="name">To: Customer Name</label>
+										<input type="text" class="form-control" style="margin-right: 10px; padding-right: 10px; padding-left: 10px;" id="name" placeholder="Enter Name">
+										{{client_info}}
+									  </div>
+								</td>
+
+								<td>
+									<div class="form-group">
+										<label for="name">From: Company Name</label>
+										<input type="text" class="form-control" id="name" placeholder="Enter Name">
+										{{user_name}} <br>
+										{{user_ address}} <br>
+									  
+									
+									</div>
+
+								</td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+
+
+				<tr class="heading">
+                    <td>Item</td>
+                    <td>ID</td>
+					<td>Price</td>
+				</tr>
+
+				<tr class="item">
+					<td>
+						<div class="form-group">
+                        	<input type="text" class="form-control" id="product" placeholder="{{Product.something1}}">
+                    	</div>
+					</td>
+					
+					
+                    <td>
+						<div class="form-group">
+                        	<input type="text" class="form-control" id="product" placeholder="{{Product.id}}">
+                    	</div>
+					</td>
+					<td><td>
+						<div class="form-group">
+                        	<input type="text" class="form-control" id="product" placeholder="{{price.this product}}">
+                    	</div>
+					</td></td>
+				</tr>
+
+				<tr class="item">
+					<td>
+						<div class="form-group">
+                        	<input type="text" class="form-control" id="product" placeholder="{{Product.something2}}">
+                    	</div>
+					</td>
+					
+					
+                    <td>
+						<div class="form-group">
+                        	<input type="text" class="form-control" id="product" placeholder="{{Product.id}}">
+                    	</div>
+					</td>
+					<td><td>
+						<div class="form-group">
+                        	<input type="text" class="form-control" id="product" placeholder="{{price.this product}}">
+                    	</div>
+					</td></td>
+				</tr>
+
+				<!-- <tr class="item last"> -->
+				<tr class="item">
+					<td>
+						<div class="form-group">
+                        	<input type="text" class="form-control" id="product" placeholder="{{Product.something1}}">
+                    	</div>
+					</td>
+					
+					
+                    <td>
+						<div class="form-group">
+                        	<input type="text" class="form-control" id="product" placeholder="{{Product.id}}">
+                    	</div>
+					</td>
+					<td><td>
+						<div class="form-group">
+                        	<input type="text" class="form-control" id="product" placeholder="{{price.this product}}">
+                    	</div>
+					</td></td>
+				</tr>
+
+				<tr class="total">
+					<td></td>
+					<td>Total: {{total_price?}}</td>
+
+				</tr>
+
+                <tr class="heading">
+					<td>Payment Method</td>
+                    <td> </td>
+					<td>Check #</td>
+				</tr>
+                <tr class="details">
+					<td>Check</td>
+                    <td> </td>
+					<td>1000</td>
+				</tr>
+			</table>
+		</div>
+		</form>
+	</body>
+</html>
