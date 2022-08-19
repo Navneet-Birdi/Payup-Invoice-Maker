@@ -8,6 +8,7 @@ CREATE TABLE `payup_db`.`user` (
   `name` VARCHAR(100) NOT NULL,
   `email` VARCHAR(100) NOT NULL,
   `address` VARCHAR(100) NOT NULL,
+  `password` VARCHAR(100) NOT NULL,
   UNIQUE INDEX `user_id_UNIQUE` (`id` ASC) VISIBLE,
   PRIMARY KEY (`id`));
 

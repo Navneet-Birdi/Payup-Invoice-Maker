@@ -1,0 +1,32 @@
+[
+    {
+      "name": "Sample",
+      "email": "sample@hotmail.com",
+      "password": "password12345",
+      "address": "123 sample rd SAMPLE"
+    },
+    {
+        "name": "Sample2",
+        "email": "sample2@hotmail.com",
+        "password": "password12345",
+        "address": "123 sample rd SAMPLE"
+    },
+    {
+        "name": "Sample3",
+        "email": "sample3@hotmail.com",
+        "password": "password12345",
+        "address": "123 sample rd SAMPLE"
+    },
+    {
+        "name": "Sample4",
+        "email": "sample4@hotmail.com",
+        "password": "password12345",
+        "address": "123 sample rd SAMPLE"
+    },
+    {
+        "name": "Sample5",
+        "email": "sample5@hotmail.com",
+        "password": "password12345",
+        "address": "123 sample rd SAMPLE"
+    }
+  ]
