@@ -9,8 +9,20 @@ const sequelize = new Sequelize(
     host: 'localhost',
     dialect: 'mysql',
     port: 3306,
-  }
-);
+  },
 
+ {
+   "mysqlOptions": {
+     "authProtocol": "default"
+   },
+   "previewLimit": 50,
+   "server": "localhost",
+   "port": 3306,
+   "driver": "MySQL",
+   "name": "payup_connection",
+   "database": "payup_db",
+   "username": "root",
+   "password": "root"
+})
 
 module.exports = sequelize;
