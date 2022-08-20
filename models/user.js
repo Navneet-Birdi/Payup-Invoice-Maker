@@ -32,7 +32,6 @@ User.init(
       allowNull: false,
       validate: {
         isEmail: true,
-        isUppercase: false,
       },
     },
     password: {
@@ -48,7 +47,7 @@ User.init(
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
-        isAlphanumeric: true,
+        is: /^[a-z\d\-_\s]+$/i,
       },
     },
   },

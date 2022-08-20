@@ -38,13 +38,14 @@ app.get("/signup", (req, res) => {
   res.sendFile(path.join(__dirname, "public/html/signup.html"));
 });
 
+
 // LOGIN TO VIEW INVOICE FORM
 app.post('/login', async (req, res) => {
   try {
     const dbUserData = await User.findOne({
-      where: {
-        name: req.body.user,
-      },
+         where: {
+          email: req.body.user,
+         },
     });
 
     if (!dbUserData) {
@@ -76,6 +77,29 @@ app.post('/login', async (req, res) => {
       res.sendFile(path.join(__dirname, "public/html/invoice.html"));
     });
 
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+});
+
+
+// CREATE NEW USER 
+app.post('/newuser', async (req, res) => {
+  try {
+    const dbUserData = await User.create({
+      name: req.body.name,
+      email: req.body.email,
+      password: req.body.password,
+      address: req.body.address
+    });
+
+    // SET SESSION VARIABLE LOGGEDIN TO TRUE
+    req.session.save(() => {
+      req.session.loggedIn = true;
+
+      res.status(200).json(dbUserData);
+    });
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
