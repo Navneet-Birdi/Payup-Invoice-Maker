@@ -1,7 +1,7 @@
 const loginBtn = document.getElementById("login-btn")
 const userEl = document.getElementById("user")
 const passwordEl = document.getElementById("password")
-
+const contBtn = document.getElementById("continue")
  async function logIn(user, password) {
     
     if(user && password) {
@@ -23,4 +23,8 @@ $(loginBtn).click(function() {
     const user = $(userEl).val()
     const password = $(passwordEl).val()
   logIn(user, password)
+})
+
+$(contBtn).click(function() {
+    document.location.replace('/')
 })

@@ -1,8 +1,8 @@
 // DEFINING ELEMENTS
-const passwordEl = document.getElementById("password");
+const passwordEl1 = document.getElementById("password");
 const emailEl = document.getElementById("email");
 const confirmPasswordEl = document.getElementById("confirm-password");
-const userEl = document.getElementById("username");
+const userEl1 = document.getElementById("username");
 const addressEl = document.getElementById("address");
 const form = document.getElementById("sign");
 const signupBtn = document.getElementById("signup");
@@ -17,9 +17,9 @@ const signupBtn = document.getElementById("signup");
 // LISTEN FOR SIGN UP BUTTON
 $(signupBtn).click(function () {
   // grab data from inputs
- userName = $(userEl).val();
+ userName = $(userEl1).val();
  userEmail = $(emailEl).val();
- userPassword = $(passwordEl).val();
+ userPassword = $(passwordEl1).val();
  confirmPwd = $(confirmPasswordEl).val();
  userAddress = $(addressEl).val();
 
@@ -68,7 +68,7 @@ async function signUp(userName, userEmail, userPassword, userAddress) {
       });
 
       if (response.ok) {
-        document.location.replace("/");
+        document.location.replace("/success");
       } else {
         alert("Failed to sign up.");
       }

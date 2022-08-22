@@ -24,7 +24,7 @@ User.init(
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
-        isAlpha: true,
+        is: /^[a-z\d\-_\s]+$/i,
       },
     },
     email: {

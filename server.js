@@ -2,110 +2,33 @@ const path = require("path");
 const express = require("express");
 const session = require("express-session");
 const routes = require("./controllers");
-const  User  = require('./models/user')
+const User = require("./models/user");
 const sequelize = require("./config/connection");
 const SequelizeStore = require("connect-session-sequelize")(session.Store);
+const exphbs = require("express-handlebars");
+const hbs = exphbs.create({});
 
 const app = express();
 const PORT = process.env.PORT || 3001;
 
- const sess = {
+const sess = {
   secret: "Super secret secret",
-   cookie: {},
+  cookie: {},
   resave: false,
-   saveUninitialized: true,
+  saveUninitialized: true,
   store: new SequelizeStore({
-     db: sequelize,
-   }),
- };
+    db: sequelize,
+  }),
+};
 
- app.use(session(sess));
+app.use(session(sess));
 
-// app.engine('handlebars', hbs.engine);
-// app.set('view engine', 'handlebars');
-
+app.engine("handlebars", hbs.engine);
+app.set("view engine", "handlebars");
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(express.static("public"));
-
-// LOAD INDEX.HTML ON LANDING PAGE
-app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "public/html/index.html"));
-});
-
-// LOAD SIGNUP.HTML
-app.get("/signup", (req, res) => {
-  res.sendFile(path.join(__dirname, "public/html/signup.html"));
-});
-
-
-// LOGIN TO VIEW INVOICE FORM
-app.post('/login', async (req, res) => {
-  try {
-    const dbUserData = await User.findOne({
-         where: {
-          email: req.body.user,
-         },
-    });
-
-    if (!dbUserData) {
-      res
-        .status(400)
-        .json({ message: 'Incorrect email or password. Please try again!' });
-      return;
-    }
-
-    const validPassword = await dbUserData.checkPassword(req.body.password);
-
-    if (!validPassword) {
-      res
-        .status(400)
-        .json({ message: 'Incorrect email or password. Please try again!' });
-      return;
-    }
-
-    // SET SESSION VARIABLE LOGGEDIN TO TRUE 
-    req.session.save(() => {
-      req.session.loggedIn = true;
-
-      res
-        .status(200)
-        .json({ user: dbUserData, message: 'You are now logged in!' });
-    });
-    // LOAD INVOICE FORM
-    app.get("/invoice", (req, res) => {
-      res.sendFile(path.join(__dirname, "public/html/invoice.html"));
-    });
-
-  } catch (err) {
-    console.log(err);
-    res.status(500).json(err);
-  }
-});
-
-
-// CREATE NEW USER 
-app.post('/newuser', async (req, res) => {
-  try {
-    const dbUserData = await User.create({
-      name: req.body.name,
-      email: req.body.email,
-      password: req.body.password,
-      address: req.body.address
-    });
-
-    // SET SESSION VARIABLE LOGGEDIN TO TRUE
-    req.session.save(() => {
-      req.session.loggedIn = true;
-
-      res.status(200).json(dbUserData);
-    });
-  } catch (err) {
-    console.log(err);
-    res.status(500).json(err);
-  }
-});
-
+app.use(express.static(path.join(__dirname, "public")));
+app.use(routes);
 
 sequelize.sync({ force: false }).then(() => {
   app.listen(PORT, () =>
