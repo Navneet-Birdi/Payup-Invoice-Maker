@@ -20,7 +20,6 @@ CREATE TABLE `payup_db`.`products` (
   `product_quantity` INT NOT NULL,
   `price` INT NOT NULL,
   `in_stock` TINYINT NOT NULL,
-  `password` VARCHAR(50) NOT NULL,
   PRIMARY KEY (`product_id`),
   UNIQUE INDEX `product_id_UNIQUE` (`product_id` ASC) VISIBLE);
 
