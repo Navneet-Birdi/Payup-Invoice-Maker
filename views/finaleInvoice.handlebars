@@ -1,13 +1,3 @@
-<!DOCTYPE html>
-<html>
-	<head>
-		<meta charset="utf-8" />
-        <link rel="stylesheet" href="/public/css/styles.css">
-		<title>PayUp! - Get paid on time</title>
-
-	</head>
-
-	<body>
 		<div class="invoice-box">
 			<table cellpadding="0" cellspacing="0">
 				<tr class="top">
@@ -19,7 +9,7 @@
 									<img src="/public/images/shut-up-logo-1000.png" style="width: 100%; max-width: 200px" alt="PayUp Logo here" />
 								</td>
 								<td class="information">
-									Order: {{order_number}}<br/>
+									Order: {{invoiceUserData.order_number}}<br/>
 									Created: {{date}}<br/>
                                     PayUp: 14 days after issue
 								</td>
@@ -33,12 +23,12 @@
 						<table>
 							<tr>
 								<td>
-									{{client_info}}
+									{{!-- {{client_info}} --}}
 								</td>
 
 								<td>
 									{{user_name}} <br>
-                                    {{user_ address}} <br>
+                                    {{user_address}} <br>
 
 								</td>
 							</tr>
@@ -54,9 +44,11 @@
 				</tr>
 
 				<tr class="item">
-					<td>{{Product.something1}}</td>
-                    <td>{{product_id}}</td>
-					<td>{{price.this product}}</td>
+					<td>{{invoiceUserData.name}}</td>
+					<td>{{invoiceUserData.product_quantity}}</td>
+                    {{!-- <td>{{invoiceUserData.product_id}}</td> --}}
+					<td>{{invoiceUserData.price}}</td>
+					<td>{{invoiceUserData.in_stock}}</td>
 				</tr>
 
 				<tr class="item">
@@ -73,7 +65,7 @@
 
 				<tr class="total">
 					<td></td>
-					<td>Total: {{total_price?}}</td>
+					<td>Total: {{total_price}}</td>
 
 				</tr>
 
@@ -89,5 +81,3 @@
 				</tr>
 			</table>
 		</div>
-	</body>
-</html>

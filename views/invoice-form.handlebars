@@ -12,15 +12,25 @@
             <h2 class="text-center text-success name">{{returnActive.name}}</h2>
         <p class="text-center text-dark name">{{returnActive.address}}</p>
           <hr>
+
+          {{#each allProducts as |drug|}}
+            <p>{{drug.name}}</p>
+            <p>{{drug.product_quantity}}</p>
+          {{/each}}
+          
+            {{!-- <p> {{#each peanuts as |peanut|}} --}}
+             
+             {{!-- {{/each}} --}}
+            {{!-- </p> --}}
             <button type="button" class="">Edit</button> 
           </div>
 
             <!-- INVOICE FORM -->          
           <div class="col-md-2"></div>
             <div class="col-8 col-sm-6 col-md-6">
-                <form>
+                <form id="invoice-form">
                     <div class="form-group">
-                      <label for="order">Order #</label>
+                      <label for="order">Order</label>
                       <input type="text" class="form-control" id="order" placeholder="Order Number">
                     </div>
                     <div class="form-group">
@@ -46,11 +56,11 @@
                         <label for="name">In Stock</label><br/>
                         <select name="subject" id="subject">
                             <option value="" selected="selected">Choose Option</option>
-                            <option value="" selected="selected">Yes</option>
+                            <option value="1" selected="selected">Yes</option>
                             <option value="" selected="selected">No</option>
                           </select>
                       </div>
-                      <button type="submit">Submit</button>
+                      <button id="submitBtn" type="button">Submit</button>
                   </form>
             </div>
         </div>
