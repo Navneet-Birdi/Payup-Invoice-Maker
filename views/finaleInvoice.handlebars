@@ -9,8 +9,8 @@
 									<img src="/public/images/shut-up-logo-1000.png" style="width: 100%; max-width: 200px" alt="PayUp Logo here" />
 								</td>
 								<td class="information">
-									Order: {{invoiceUserData.order_number}}<br/>
-									Created: {{date}}<br/>
+									Order: {{clientData.order_num}}<br/>
+									Created: {{now}} <br/>
                                     PayUp: 14 days after issue
 								</td>
 							</tr>
@@ -23,12 +23,12 @@
 						<table>
 							<tr>
 								<td>
-									{{!-- {{client_info}} --}}
+									{{clientData.client}}
 								</td>
 
 								<td>
-									{{user_name}} <br>
-                                    {{user_address}} <br>
+									{{userData.name}} <br>
+                                    {{userData.address}} <br>
 
 								</td>
 							</tr>

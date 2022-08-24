@@ -1,68 +1,100 @@
+<!-- TITLE -->
 
-        
-        <!-- TITLE -->
+<div class="container card-body">
+  <h2 class="card-title text-center text-muted pb-5 name">Fill out the form to
+    generate your custom invoice!</h2>
 
-
-      <div class="container card-body" >
-        <h2 class="card-title text-center text-muted pb-5">Fill out the form to generate your custom invoice!</h2>
-        
-        <!-- PREVIOUS INVOICE TABLE -->       
-        <div class="row">
-          <div class="col-6 col-md-4 bg-light card">
-            <h2 class="text-center text-success name">{{returnActive.name}}</h2>
-        <p class="text-center text-dark name">{{returnActive.address}}</p>
-          <hr>
-
-          {{#each allProducts as |drug|}}
-            <p>{{drug.name}}</p>
-            <p>{{drug.product_quantity}}</p>
-          {{/each}}
-          
-            {{!-- <p> {{#each peanuts as |peanut|}} --}}
-             
-             {{!-- {{/each}} --}}
-            {{!-- </p> --}}
-            <button type="button" class="">Edit</button> 
-          </div>
-
-            <!-- INVOICE FORM -->          
-          <div class="col-md-2"></div>
-            <div class="col-8 col-sm-6 col-md-6">
-                <form id="invoice-form">
-                    <div class="form-group">
-                      <label for="order">Order</label>
-                      <input type="text" class="form-control" id="order" placeholder="Order Number">
-                    </div>
-                    <div class="form-group">
-                      <label for="name">Name</label>
-                      <input type="text" class="form-control" id="name" placeholder="Enter Name">
-                    </div>
-                    <div class="form-group">
-                        <label for="product">Product</label>
-                        <input type="text" class="form-control" id="product" placeholder="Enter Product">
-                      </div>
-                    
-                      <div class="form-group">
-                        <label for="name">Quantity</label>
-                        <input type="text" class="form-control" id="quantity" placeholder="Number of Products">
-                      </div>
-                    
-                      <div class="form-group">
-                        <label for="name">Price</label>
-                        <input type="text" class="form-control" id="price" placeholder="Enter Price">
-                      </div>
-                    
-                      <div class="form-group">
-                        <label for="name">In Stock</label><br/>
-                        <select name="subject" id="subject">
-                            <option value="" selected="selected">Choose Option</option>
-                            <option value="1" selected="selected">Yes</option>
-                            <option value="" selected="selected">No</option>
-                          </select>
-                      </div>
-                      <button id="submitBtn" type="button">Submit</button>
-                  </form>
-            </div>
-        </div>
-      </div>
+  <!-- PREVIOUS INVOICE TABLE -->
+  <div class="row">
+    <div class="col-6 col-md-4 bg-light card">
+      <h1 class="text-center text-success name">{{returnActive.name}}</h1>
+      <p class="text-center text-dark name">{{returnActive.address}}</p>
+      <h3 class="lead text-center text-muted">Current Order</h3>
+      <hr />
       
+      {{#if allProducts}}
+        {{#each allProducts as |product|}}
+          <ul class="list-group">
+            <li
+              class="list-group-item d-flex justify-content-between align-items-center p-2"
+            >
+             
+              {{product.name}}
+    
+              <span
+                class="badge badge-secondary badge-pill"
+              >{{product.product_quantity}}</span>
+            </li>
+            <form action="/{{product.id}}" method="post" name="{{product.id}}"><button type="submit" class="btn-outline-danger btn btn-sm m-1 p-0">Clear Product</button></form>
+          </ul>
+        {{/each}}
+      {{/if}}
+
+      <button type="button" class="" id="create">Create Invoice!</button>
+    </div>
+
+    <!-- INVOICE FORM -->
+    <div class="col-md-2"></div>
+    <div class="col-8 col-sm-6 col-md-6">
+      <form id="invoice-form">
+        <div class="form-group">
+          <label for="order">Order #</label>
+          <input
+            type="text"
+            class="form-control"
+            id="order"
+            placeholder="Order Number"
+          />
+        </div>
+        <div class="form-group">
+          <label for="name">Client Name</label>
+          <input
+            type="text"
+            class="form-control"
+            id="name"
+            placeholder="Enter Name"
+          />
+        </div>
+        <div class="form-group">
+          <label for="product">Product</label>
+          <input
+            type="text"
+            class="form-control"
+            id="product"
+            placeholder="Enter Product"
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="name">Quantity</label>
+          <input
+            type="text"
+            class="form-control"
+            id="quantity"
+            placeholder="Number of Products"
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="name">Price</label>
+          <input
+            type="text"
+            class="form-control"
+            id="price"
+            placeholder="Enter Price"
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="name">In Stock</label><br />
+          <select name="subject" id="subject">
+            <option value="" selected="selected">Choose Option</option>
+            <option value="1" selected="selected">Yes</option>
+            <option value="" selected="selected">No</option>
+          </select>
+        </div>
+        <button id="submitBtn" type="button">Add Product</button>
+      </form>
+    </div>
+  </div>
+</div>

@@ -5,6 +5,8 @@ const quantity = document.getElementById('quantity');
 const price = document.getElementById('price');
 const inStock = document.getElementById('subject');
 const submitBtn = document.getElementById('submitBtn');
+const delProduct = document.getElementById('delProduct')
+const createBtn = document.getElementById('create')
 
 let orderNumber = '';
 let customerName = '';
@@ -37,7 +39,7 @@ async function createInvoice(orderNumber, customerName, custProduct, prodQuantit
         method: "POST",
         body: JSON.stringify(
             {   "order": orderNumber ,
-                "customer name": customerName,
+                "client": customerName,
                 "name": custProduct,
                 "quantity": prodQuantity,
                 "price": prodPrice,
@@ -52,3 +54,7 @@ async function createInvoice(orderNumber, customerName, custProduct, prodQuantit
       }
     }
   };
+
+  $(createBtn).click(function() {
+    document.location.replace('/create')
+  })

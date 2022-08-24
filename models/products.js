@@ -15,12 +15,24 @@ Products.init(
     },
     user_id: {
         type: DataTypes.INTEGER,
-        allowNull: false
+        allowNull: false,
+        references: {
+          model: 'user',
+          key: 'id',
+        }
     },
+    order_num: {
+      type: DataTypes.INTEGER,
+      allowNull: false
+  },
     name: {
         type: DataTypes.STRING,
         allowNull: false
     },
+    client: {
+      type: DataTypes.STRING,
+      allowNull: false
+  },
     product_quantity: {
         type: DataTypes.INTEGER,
         allowNull: false

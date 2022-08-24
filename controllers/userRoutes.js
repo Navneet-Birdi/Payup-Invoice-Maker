@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const Products = require('../models/products');
 const User = require('../models/user')
-
+const orderNum = []
 
 // LOGIN TO VIEW INVOICE FORM
 router.post('/login', async (req, res) => {
@@ -38,13 +38,6 @@ router.post('/login', async (req, res) => {
         .status(200)
         .json({ user: dbUserData, message: 'You are now logged in!' });
     });
-    // LOAD INVOICE FORM
-    
-    
-    
-      // const returnProducts = allProducts.get({raw: true });
-      // res.render('invoice-form', {allProducts})
-    // });
     
   } catch (err) {
     console.log(err);
@@ -52,8 +45,10 @@ router.post('/login', async (req, res) => {
   }
 });
 
+
+// DISPLAY FORM FOR INVOICE
 router.get("/invoice", async (req, res) => {
-  // get the orm to create prod
+
 
   const active = await User.findByPk(req.session.userId);
 
@@ -71,8 +66,6 @@ router.get("/invoice", async (req, res) => {
     returnActive,
     allProducts
    })
-    // const peanuts = JSON.stringify(allProducts);
-    // const cashews = peanuts.name;
     
   });
 
