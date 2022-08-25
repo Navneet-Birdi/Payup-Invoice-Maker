@@ -61,7 +61,7 @@ router.get("/invoice", async (req, res) => {
     raw: true
   })
 
-  console.log(allProducts);
+
   res.render('invoice-form', {
     returnActive,
     allProducts

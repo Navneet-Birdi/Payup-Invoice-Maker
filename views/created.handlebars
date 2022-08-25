@@ -5,14 +5,15 @@
 						<table>
 							<tr>
 								<td class="title">
-                                    <h1 style="margin-top: auto; margin-bottom: auto;">PayUp</h1>
+                                    <h1 class="payup">PayUp!</h1>
 									<img src="/images/shut-up-logo-1000.png" style="width: 100%; max-width: 200px" alt="PayUp Logo here" />
+									
 								</td>
 								<td class="information">
 									
-                                    <h3>Order:</h3> <h4>#{{clientData.order_num}}</h4><br/>
-									<h3>Created:</h3> <h4>{{now}}</h4><br/>
-                                    <h3>PayUp:</h3> <h4>14 days after issue</h4>
+                                    <h3 class="payup">Order:</h3> <h5 class="mono text-muted">#{{clientData.order_num}}</h5><br/>
+									<h3 class="payup">Created:</h3> <h5 class="mono text-muted">{{now}}</h5><br/>
+                                    <h3 class="payup">PayUp:</h3> <h5 class="mono text-muted">14 days after issue</h5>
 								</td>
 							</tr>
 						</table>
@@ -24,48 +25,66 @@
 						<table>
 							<tr>
 								<td>
-                                    <h4>Issued to:</h4>
-									<h3 class="text-info">{{clientData.client}}</h3>
+									<hr>
+                                    <h4 class="payup">Issued to:</h4>
+									<h3 class="text-success mono">{{clientData.client}}</h3>
 								</td>
                                     
 								<td>
-                                    <h4>From:</h4>
-									<h3 class="text-info">{{userData.name}}</h3>
-                                    <p class="text-muted">{{userData.address}}</p><br>
-
+								
+								    <h4 class="payup">From:</h4>
+								
+									<h3 class="text-muted mono">{{userData.name}}</h3>
+                                    <p class="text-muted mono">{{userData.address}}</p><br>
+								<hr>
 								</td>
 							</tr>
 						</table>
 					</td>
 				</tr>
 
-
+					
 				<tr class="heading">
-                    <td>Item</td>
-                    <td>ID</td>
-					<td>Price</td>
+					
+                    <td class="payup font-weight-lighter">Item</td>
+                    <td class="payup font-weight-lighter">Quantity</td>
+					<td class="payup font-weight-lighter">Price</td>
+					<td class="payup font-weight-lighter">In Stock</td>
 				</tr>
                
                 {{#each productData as |product|}}
 				<tr class="item">
                     
-					<td>{{product.name}}</td>
-					<td>{{product.product_quantity}}</td>
-					<td>{{product.price}}</td>
+					<td class="mono text-dark">{{product.name}}</td>
+					<td class="mono text-secondary">{{product.product_quantity}}</td>
+					<td class="mono text-dark">${{product.price}}</td>
                     <!-- RETURNS AS 1 OR 0 -->
-                    <td>{{product.in_stock}}</td>
-                   
+					{{#each inStock.in_stock as |stock|}}
+                    <td class="mono text-secondary">{{stock}}</td>
+					{{/each}}
+				
+             
+				  
 				</tr>
                {{/each}}
+			
                 <tr class="total">
 					<td></td>
+					<td></td>
+					
                     <!-- NEED TO WRITE FUNCTION -->
-					<td>Total: </td>
+					
+					<td class="payup font-weight-lighter ">Total: </td>
+					<td class="mono">${{total}}</td>
+					
+			           <tr>
+						<td></td>
+						<td class="name text-white-50 font-weight-light text-center">This invoice does NOT include GST</td>
+						</tr>
+					
 
-				</tr>
 
-
-             <!-- NECESSARY? -->
+             <!-- NECESSARY? 
                 <tr class="heading">
 					<td>Payment Method</td>
                     <td> </td>
@@ -78,3 +97,4 @@
 				</tr>
 			</table>
 		</div>
+		-->

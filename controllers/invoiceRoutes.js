@@ -5,6 +5,7 @@ const Products = require('../models/products');
 const { restore } = require('../models/user');
 const  User  = require('../models/user');
 const dateFormat = require('date-and-time')
+const math = require("mathjs");
 // pseudo code!
 
 //input data into invoice handlebar file
@@ -43,19 +44,54 @@ router.get('/create', async (req, res) => {
     raw: true
   })
 
+  // GET PRICES
+  const productPrice = await Products.findAll({
+    where: {
+      user_id: req.session.userId,
+    },
+    attributes: [ 'price'],
+    raw: true
+  })
+
+  let prices = []
+  for (let index = 0; index < productPrice.length; index++) {
+    const product = productPrice[index];
+    prices.push(product.price)
+  }
+  let sum = math.sum(prices)
+  let total = math.format(sum,  {notation: 'fixed', precision: 2})
 
 // SET CREATION TIME
 const date = new Date();
 const now = dateFormat.format(date, 'MMM DD YYYY');
 
+// IN STOCK ?
 
-//need to write function to add total sum
-  // run query to select all product price when user id is = to current user id
-  // add to array
-  // user math npm to add total sum
+const productStock = await Products.findAll({
+  where: {
+    user_id: req.session.userId,
+  },
+  attributes: [ 'in_stock'],
+  raw: true
+})
+
+let inStock = []
+for (let index = 0; index < productStock.length; index++) {
+  const stock = productStock[index];
+  
+  if(stock.in_stock === 1) {
+    stock.in_stock = 'Yes'
+    inStock.push(stock)
+  } else {
+   stock.in_stock = 'No'
+   inStock.push(stock)
+  }
+}
+
+console.log(inStock)
 
 // RENDER INVOICE
-res.render('created', { userData, productData, clientData, now })
+res.render('created', { userData, productData, clientData, now, total, inStock })
 })
 
 

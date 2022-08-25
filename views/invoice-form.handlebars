@@ -7,11 +7,12 @@
   <!-- PREVIOUS INVOICE TABLE -->
   <div class="row">
     <div class="col-6 col-md-4 bg-light card">
-      <h1 class="text-center text-success name">{{returnActive.name}}</h1>
+      <h1 class="text-center text-success payup font-weight-lighter">{{returnActive.name}}</h1>
       <p class="text-center text-dark name">{{returnActive.address}}</p>
-      <h3 class="lead text-center text-muted">Current Order</h3>
-      <hr />
       
+      <hr />
+      <p class="lead text-center text-muted mono">Current Order:</p>
+
       {{#if allProducts}}
         {{#each allProducts as |product|}}
           <ul class="list-group">

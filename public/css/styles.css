@@ -186,8 +186,13 @@ input[type=text], input[type=password] {
 .name {
   font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
-
+.payup {
+  font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
 li {
+  font-family: monospace;
+}
+.mono {
   font-family: monospace;
 }
 @media only screen and (max-width: 600px) {
