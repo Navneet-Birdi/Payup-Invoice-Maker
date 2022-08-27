@@ -8,6 +8,8 @@ class User extends Model {
   }
 }
 
+
+// MODEL FOR USER
 User.init(
   {
     // Manually define the primary key

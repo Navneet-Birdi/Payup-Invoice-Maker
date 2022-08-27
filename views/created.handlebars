@@ -1,4 +1,6 @@
-<div class="invoice-box">
+<!-- ORDER NUMBER, DATE OF CREATION, DUE -->
+<div class="container d-block">
+<div class="invoice-box d-sm-block"  id="invoice">
 			<table cellpadding="0" cellspacing="0">
 				<tr class="top">
 					<td colspan="3">
@@ -20,30 +22,27 @@
 					</td>
 				</tr>
 
+
+				<!-- ISSUED TO/FROM -->
 				<tr class="information">
 					<td colspan="3">
 						<table>
 							<tr>
 								<td>
-									<hr>
+									
                                     <h4 class="payup">Issued to:</h4>
-									<h3 class="text-success mono">{{clientData.client}}</h3>
-								</td>
-                                    
-								<td>
+									<h3 class="text-success name">{{clientData.client}}</h3>
 								
-								    <h4 class="payup">From:</h4>
-								
-									<h3 class="text-muted mono">{{userData.name}}</h3>
-                                    <p class="text-muted mono">{{userData.address}}</p><br>
-								<hr>
+									<h4 class="payup">From:</h4>
+									<h3 class="text-muted name">{{userData.name}} // <span class="mono text-muted">{{userData.address}}</span></h3>
+                        
 								</td>
 							</tr>
 						</table>
 					</td>
 				</tr>
 
-					
+			<!-- PRODUCTS -->		
 				<tr class="heading">
 					
                     <td class="payup font-weight-lighter">Item</td>
@@ -53,48 +52,39 @@
 				</tr>
                
                 {{#each productData as |product|}}
+				
 				<tr class="item">
                     
 					<td class="mono text-dark">{{product.name}}</td>
 					<td class="mono text-secondary">{{product.product_quantity}}</td>
 					<td class="mono text-dark">${{product.price}}</td>
-                    <!-- RETURNS AS 1 OR 0 -->
-					{{#each inStock.in_stock as |stock|}}
-                    <td class="mono text-secondary">{{stock}}</td>
-					{{/each}}
+
+					
 				
-             
-				  
+                    <td class="mono text-secondary">{{product.in_stock}}</td>
+					
+					
+				{{/each}}
+				
 				</tr>
-               {{/each}}
-			
                 <tr class="total">
-					<td></td>
-					<td></td>
+				<td></td>
+				<td></td>
 					
-                    <!-- NEED TO WRITE FUNCTION -->
-					
+					<!-- TOTATL & DISCLAIMER -->
 					<td class="payup font-weight-lighter ">Total: </td>
 					<td class="mono">${{total}}</td>
+					<tr>
+					<td></td>
+					<td class="name text-white-50 font-weight-light text-center">This invoice does NOT include GST</td>
+					</tr>
 					
-			           <tr>
-						<td></td>
-						<td class="name text-white-50 font-weight-light text-center">This invoice does NOT include GST</td>
-						</tr>
-					
+					</tr>
+					</table>
+</div>
+				<!-- PRINT INVOICE -->
+				<div class="container w-50">
+					<button type="button" id="print">Save Invoice</button>
+</div>
 
-
-             <!-- NECESSARY? 
-                <tr class="heading">
-					<td>Payment Method</td>
-                    <td> </td>
-					<td>Check #</td>
-				</tr>
-                <tr class="details">
-					<td>Check</td>
-                    <td> </td>
-					<td>1000</td>
-				</tr>
-			</table>
-		</div>
-		-->
+	</div>

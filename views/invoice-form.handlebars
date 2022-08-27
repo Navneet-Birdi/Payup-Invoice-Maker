@@ -1,20 +1,21 @@
 <!-- TITLE -->
 
 <div class="container card-body">
-  <h2 class="card-title text-center text-muted pb-5 name">Fill out the form to
+  <h2 class="card-title text-center text-muted pb-5 mono">Fill out the form to
     generate your custom invoice!</h2>
 
   <!-- PREVIOUS INVOICE TABLE -->
   <div class="row">
     <div class="col-6 col-md-4 bg-light card">
-      <h1 class="text-center text-success payup font-weight-lighter">{{returnActive.name}}</h1>
-      <p class="text-center text-dark name">{{returnActive.address}}</p>
+      <h1 class="text-center text-success payup font-weight-lighter">{{active.name}}</h1>
+      <p class="text-center text-dark name">{{active.address}}</p>
       
       <hr />
-      <p class="lead text-center text-muted mono">Current Order:</p>
 
+      <p class="lead text-center text-muted mono">Current Order</p>
       {{#if allProducts}}
         {{#each allProducts as |product|}}
+        
           <ul class="list-group">
             <li
               class="list-group-item d-flex justify-content-between align-items-center p-2"

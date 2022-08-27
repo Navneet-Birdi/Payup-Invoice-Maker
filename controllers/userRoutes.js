@@ -50,9 +50,8 @@ router.post('/login', async (req, res) => {
 router.get("/invoice", async (req, res) => {
 
 
-  const active = await User.findByPk(req.session.userId);
+  const active = await User.findByPk(req.session.userId, {raw: true});
 
-  const returnActive = active.get({ plain: true })
 
   const allProducts = await Products.findAll({
     where: {
@@ -63,7 +62,7 @@ router.get("/invoice", async (req, res) => {
 
 
   res.render('invoice-form', {
-    returnActive,
+    active,
     allProducts
    })
     

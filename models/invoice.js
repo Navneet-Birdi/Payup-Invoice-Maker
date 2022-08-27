@@ -3,9 +3,9 @@ const sequelize = require('../config/connection');
 
 class Invoice extends Model {}
 
+// MODEL FOR INVOICE
 Invoice.init(
   {
-    // Manually define the primary key
     order_number: {
         type: DataTypes.INTEGER,
         primaryKey: true,

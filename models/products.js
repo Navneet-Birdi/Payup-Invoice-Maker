@@ -3,6 +3,8 @@ const sequelize = require('../config/connection');
 
 class Products extends Model {}
 
+
+// MODEL FOR PRODUCTS
 Products.init(
   {
     // Manually define the primary key
