@@ -1,12 +1,12 @@
 <!-- TITLE -->
-
+<div class="container invoice-container">
 <div class="container card-body">
-  <h2 class="card-title text-center text-muted pb-5 mono">Fill out the form to
-    generate your custom invoice!</h2>
+  <h3 class="card-title text-center text-muted pb-5 mono">Fill out the form to
+    generate your custom invoice!</h3>
 
   <!-- PREVIOUS INVOICE TABLE -->
   <div class="row">
-    <div class="col-6 col-md-4 bg-light card">
+    <div class="col-sm-4 card bg-light">
       <h1 class="text-center text-success payup font-weight-lighter">{{active.name}}</h1>
       <p class="text-center text-dark name">{{active.address}}</p>
       
@@ -36,9 +36,9 @@
     </div>
 
     <!-- INVOICE FORM -->
-    <div class="col-md-2"></div>
-    <div class="col-8 col-sm-6 col-md-6">
-      <form id="invoice-form">
+    <div class="col-sm-1"></div>
+    <div class="col-sm-5 card">
+      <form id="invoice-form" class="m-2">
         <div class="form-group">
           <label for="order">Order #</label>
           <input
@@ -99,4 +99,5 @@
       </form>
     </div>
   </div>
+</div>
 </div>
