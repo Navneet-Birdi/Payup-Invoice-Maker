@@ -2,26 +2,27 @@ const Sequelize = require('sequelize');
 require('dotenv').config();
 
 const sequelize = new Sequelize(
+  process.env.DB_NAME,
+  process.env.DB_USER,
+  process.env.DB_PASSWORD,
   {
-  "development": {
-    "username": process.env.DB_USER,
-    "password": process.env.DB_PASSWORD,
-    "database": process.env.DB_NAME,
-    "port": process.env.DB_PORT,
-    dialect: mysql
+    host: 'r98du2bxwqkq3shg.cbetxkdyhwsb.us-east-1.rds.amazonaws.com',
+    dialect: 'mysql',
+    port: 3306,
   },
-  "test": {
-    "username": "root",
-    "password": null,
-    "database": "database_test",
-    "host": "127.0.0.1",
-    "dialect": mysql
-  },
-  "production": {
-    "use_env_variable": "JAWSDB_URL",
-    dialect: mysql
-  }
-}
-)
+
+ {
+   "mysqlOptions": {
+     "authProtocol": "default"
+   },
+   "previewLimit": 50,
+   "server": "localhost",
+   "port": 3306,
+   "driver": "MySQL",
+   "name": "payup_connection",
+   "database": "payup_db",
+   "username": "root",
+   "password": "root"
+})
 
 module.exports = sequelize;
