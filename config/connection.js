@@ -8,18 +8,18 @@ const sequelize = new Sequelize(
     "password": process.env.DB_PASSWORD,
     "database": process.env.DB_NAME,
     "port": process.env.DB_PORT,
-    "dialect": "mysql"
+    dialect: "mysql"
   },
   "test": {
     "username": "root",
     "password": null,
     "database": "database_test",
     "host": "127.0.0.1",
-    "dialect": "mysql"
+    dialect: "mysql"
   },
   "production": {
     "use_env_variable": "JAWSDB_URL",
-    "dialect": "mysql"
+    dialect: "mysql"
   }
 }
 )
