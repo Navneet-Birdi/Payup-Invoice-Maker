@@ -41,8 +41,7 @@ User.init(
       allowNull: false,
       validate: {
         isAlphanumeric: true,
-        min: 8,
-        max: 50,
+        len: [5, 20],
       },
     },
     address: {
