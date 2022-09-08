@@ -26,20 +26,23 @@ $(signupBtn).click(function () {
   //EMAIL VERIFICATION
   if (!isEmailValid(userEmail)) {
     alert("You must enter a valid email");
-  }
+  } else 
 
   // PASSWORD VERIFICATION
   if (isPasswordSecure(userPassword)) {
     alert("Please enter a valid password");
-  }
+  } else
 
   if (userPassword != confirmPwd) {
     alert("Passwords do not match");
-  }
+  } else
+  if(userPassword.length < 5 || userPassword.length > 20) {
+    alert("Password needs to be between 5 & 20 characters")
+  } else {
 
   signUp(userName, userEmail, userPassword, userAddress)
 
-
+  }
 });
 
 // CHECK EMAIL IS VALID

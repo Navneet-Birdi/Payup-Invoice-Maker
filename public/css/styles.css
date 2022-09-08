@@ -44,19 +44,14 @@ input[type=text], input[type=password] {
     opacity:1;
   }
   
-  .cancelbtn {
-    padding: 10px 10px;
-    background-color: #7c7575;
-  }
+
   
-#login-btn {
-  width: 5rem;
+#login-btn, .signupbtn {
+  justify-content: center;
+  width: 50%;
 }
+
   
-  .cancelbtn, .signupbtn {
-    float: left;
-    width: 50%;
-  }
   
   /* Add padding to container elements */
   .container {

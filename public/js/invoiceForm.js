@@ -29,10 +29,11 @@ $(submitBtn).click(function () {
     prodPrice = $(price).val();
     prodInStock = !!$(inStock).val();
   
-
-    console.log(orderNumber, customerName, custProduct, prodQuantity, prodPrice, prodInStock);
-
+if(isNaN(orderNumber) === true || isNaN(prodQuantity) === true || isNaN(prodPrice) === true  ) { 
+  alert('Order #, Quantity and Price must be numerical. Please check the fields and try again.')
+} else {
     createInvoice(orderNumber, customerName, custProduct, prodQuantity, prodPrice, prodInStock);
+}
   });
 
 
